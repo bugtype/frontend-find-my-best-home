@@ -9,17 +9,28 @@ function App() {
 
   return (
     <>
-      <Grid
-        className={'App'}
-        container
-        direction="column"
-        justify="center"
-        alignItems="center"
-      >
-        {loading && 'loading...'}
-        {data.map((board) => (
-          <BoardRow item={board} />
-        ))}
+      <Grid className={'App'} container justify="center" alignItems="center">
+        <Grid item className={'Header'}>
+          Header
+        </Grid>
+        <Grid
+          container
+          item
+          spacing={2}
+          style={{
+            height: '300px',
+          }}
+        >
+          {loading && 'loading...'}
+          {data.map((board) => (
+            <Grid item xs={12}>
+              <BoardRow item={board} />
+            </Grid>
+          ))}
+        </Grid>
+        <Grid item className={'Footer'}>
+          Footer
+        </Grid>
       </Grid>
     </>
   );
