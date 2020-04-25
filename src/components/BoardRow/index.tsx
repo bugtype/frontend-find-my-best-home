@@ -1,7 +1,7 @@
 import React from 'react';
-import { Board } from 'models';
+import { Board } from '@models';
 import { Grid } from '@material-ui/core';
-import { DateTime } from 'components/DateTime';
+import { DateTime } from '@components';
 
 export const BoardRow = ({ item }: { item: Board }) => {
   const { subject, date, userName } = item;

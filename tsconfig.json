@@ -15,7 +15,13 @@
     "noEmit": true,
     "jsx": "react",
     "noImplicitAny": false,
-    "baseUrl": "./src"
+    "baseUrl": "src",
+    "paths": {
+      "@hooks": ["hooks/index"],
+      "@services": ["services/index"],
+      "@models": ["models/index"],
+      "@components": ["components/index"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/node_modules/*"]

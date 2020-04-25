@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import { Grid } from '@material-ui/core';
-import { useBoardData } from 'hooks';
-import { BoardRow } from './components/BoardRow/index';
+import { useBoardData } from '@hooks';
+import { BoardRow } from '@components';
 
 function App() {
   const { data, loading } = useBoardData();
