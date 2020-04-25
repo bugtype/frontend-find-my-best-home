@@ -13,14 +13,7 @@ function App() {
         <Grid item className={'Header'}>
           Header
         </Grid>
-        <Grid
-          container
-          item
-          spacing={2}
-          style={{
-            height: '300px',
-          }}
-        >
+        <Grid container item className={'Content'} spacing={2}>
           {loading && 'loading...'}
           {data.map((board) => (
             <Grid item xs={12}>

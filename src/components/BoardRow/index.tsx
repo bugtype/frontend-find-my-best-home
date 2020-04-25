@@ -4,9 +4,12 @@ import { Grid } from '@material-ui/core';
 import { DateTime } from '@components';
 
 export const BoardRow = ({ item }: { item: Board }) => {
-  const { subject, date, userName } = item;
+  const { subject, date, userName, city } = item;
   return (
     <Grid container justify="center" alignItems="center" spacing={2}>
+      <Grid item xs={1}>
+        {city}
+      </Grid>
       <Grid item xs={7}>
         {subject}
       </Grid>
