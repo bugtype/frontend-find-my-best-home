@@ -1,7 +1,7 @@
 import 'rxjs';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { Board } from 'models';
+import { Board } from '@models';
 
 type PaginatePayload = {
   page: number;
