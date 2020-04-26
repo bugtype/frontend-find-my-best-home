@@ -18,4 +18,5 @@
 
 .Content {
   padding: 16px;
+  min-height: 400px;
 }

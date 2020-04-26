@@ -4,10 +4,10 @@ import { Board } from '@models';
 import { boardListService } from '@services';
 /**
  * TODO: 추후 바꿔야함. Apollo로 변경해야함.
- * https://www.apollographql.com/docs/react/ 아폴로를 모티브로 해서 작성
+ * https://www.apollographql.com/docs/react/
  */
 
-export const useBoardData: () => QueryHooks<Board[]> = () => {
+export const useBoardData: (page: number) => QueryHooks<Board[]> = (page) => {
   const [state, setState] = useState({
     loading: true,
     error: null,
@@ -15,16 +15,19 @@ export const useBoardData: () => QueryHooks<Board[]> = () => {
   });
 
   useEffect(() => {
-    // TODO: page 작업해야함.
-
-    boardListService.paginate({ page: 1 }).subscribe((data) => {
+    setState((prevState) => ({
+      ...prevState,
+      loading: true,
+      data: [],
+    }));
+    boardListService.paginate({ page }).subscribe((data) => {
       setState((prevState) => ({
         ...prevState,
         loading: false,
         data,
       }));
     });
-  }, [setState]);
+  }, [page, setState]);
 
   return state;
 };

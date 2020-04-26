@@ -1,7 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { DateTime } from '@components';
-import { Grid } from '@material-ui/core';
 
 const mockDate = '2020-03-19T08:26:38.837Z';
 describe('BoardRow 테스트', () => {

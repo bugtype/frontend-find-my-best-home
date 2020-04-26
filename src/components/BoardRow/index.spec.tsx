@@ -16,7 +16,5 @@ describe('BoardRow 테스트', () => {
     const testInstance = testRenderer.root;
     expect(testInstance.findAllByType(Grid).length).toEqual(5);
     expect(testInstance.findByType(DateTime).props.date).toBe(mock.date);
-
-    console.log(testRenderer.toJSON());
   });
 });
