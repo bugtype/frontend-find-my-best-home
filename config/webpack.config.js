@@ -294,6 +294,8 @@ module.exports = function (webpackEnv) {
         '@services': 'services',
         '@models': 'models',
         '@components': 'components',
+        '@configs': 'configs',
+        '@libs': 'libs',
         'react-native': 'react-native-web',
         // Allows for better profiling with ReactDevTools
         ...(isEnvProductionProfile && {

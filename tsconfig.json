@@ -20,7 +20,9 @@
       "@hooks": ["hooks/index"],
       "@services": ["services/index"],
       "@models": ["models/index"],
-      "@components": ["components/index"]
+      "@components": ["components/index"],
+      "@libs": ["libs/index"],
+      "@configs": ["configs/index"]
     }
   },
   "include": ["src"],
