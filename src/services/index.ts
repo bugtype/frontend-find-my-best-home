@@ -1,6 +1,6 @@
 import 'rxjs';
-import { Observable, of, from } from 'rxjs';
-import { delay, map } from 'rxjs/operators';
+import { Observable, from } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Board } from '@models';
 import { httpClient } from '@libs';
 import { AxiosResponse } from 'axios';
