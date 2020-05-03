@@ -56,6 +56,7 @@
     "react-app-polyfill": "^1.0.6",
     "react-dev-utils": "^10.2.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
     "react-test-renderer": "^16.13.1",
     "resolve": "1.15.0",
     "resolve-url-loader": "3.1.1",
@@ -129,7 +130,8 @@
       "^@hooks(.*)$": "<rootDir>/src/hooks$1",
       "^@services(.*)$": "<rootDir>/src/services$1",
       "^@libs(.*)$": "<rootDir>/src/libs$1",
-      "^@configs(.*)$": "<rootDir>/src/configs$1"
+      "^@configs(.*)$": "<rootDir>/src/configs$1",
+      "^@pages(.*)$": "<rootDir>/src/pages$1"
     },
     "moduleFileExtensions": [
       "web.js",

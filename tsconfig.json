@@ -22,7 +22,8 @@
       "@models": ["models/index"],
       "@components": ["components/index"],
       "@libs": ["libs/index"],
-      "@configs": ["configs/index"]
+      "@configs": ["configs/index"],
+      "@pages": ["pages/index"]
     }
   },
   "include": ["src"],
