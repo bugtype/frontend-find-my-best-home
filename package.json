@@ -15,6 +15,7 @@
     "@types/react-dom": "^16.9.0",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
+    "axios": "^0.19.2",
     "babel-eslint": "10.1.0",
     "babel-jest": "^24.9.0",
     "babel-loader": "8.1.0",
@@ -126,7 +127,9 @@
       "^@components(.*)$": "<rootDir>/src/components$1",
       "^@models(.*)$": "<rootDir>/src/models$1",
       "^@hooks(.*)$": "<rootDir>/src/hooks$1",
-      "^@services(.*)$": "<rootDir>/src/services$1"
+      "^@services(.*)$": "<rootDir>/src/services$1",
+      "^@libs(.*)$": "<rootDir>/src/libs$1",
+      "^@configs(.*)$": "<rootDir>/src/configs$1"
     },
     "moduleFileExtensions": [
       "web.js",
