@@ -5,17 +5,6 @@
   flex-grow: 1;
 }
 
-.Header {
-  background-color: #ddd;
-  text-align: center;
-  width: 100%;
-}
-
-.Footer {
-  background-color: rgb(203, 231, 209);
-  width: 100%;
-}
-
 .Content {
   padding: 16px;
   min-height: 400px;
