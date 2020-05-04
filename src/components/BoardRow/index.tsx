@@ -15,10 +15,13 @@ const useStyles = makeStyles({
 
 export const BoardRow = ({ item }: { item: Board }) => {
   const classes = useStyles();
-  const { subject, date, userName, city } = item;
+  const { subject, date, userName, city, no } = item;
 
   return (
     <Grid container justify="center" alignItems="center" spacing={2}>
+      <Grid item xs={1}>
+        {no}
+      </Grid>
       <Grid item xs={1}>
         {city}
       </Grid>
@@ -33,8 +36,8 @@ export const BoardRow = ({ item }: { item: Board }) => {
       <Grid item xs={2}>
         {userName}
       </Grid>
-      <Grid item xs={2}>
-        <DateTime date={date} />
+      <Grid item xs={1}>
+        <DateTime date={date} textFormat={'MM-dd'} />
       </Grid>
     </Grid>
   );
