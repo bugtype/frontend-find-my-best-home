@@ -1,5 +1,5 @@
 export class Board {
-  no!: number;
+  id!: number;
 
   subject!: string;
 

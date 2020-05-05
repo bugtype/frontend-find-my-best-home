@@ -20,12 +20,14 @@ function App() {
   // FIXME: 헤더, 풋터가 Content크기에 따라 계속 움직이므로, Content 영역 크기를 고정시켜야한다.
 
   const classes = useStyles();
+
   return (
     <Router>
       <Grid
         className={classes.app}
         container
-        justify="center"
+        direction="column"
+        justify="space-between"
         alignItems="center"
       >
         <Header />
@@ -35,7 +37,7 @@ function App() {
           <Route
             exact
             path={ROUTE_BOARD_DETAIL}
-            children={<BoardDetailPage />}
+            render={({ match }) => <BoardDetailPage {...match.params} />}
           />
           <Route path="*" children={<NotFoundPage />} />
         </Switch>
