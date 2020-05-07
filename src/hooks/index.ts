@@ -4,7 +4,6 @@ import { Board } from '@models';
 import { boardListService } from '@services';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
-import { catchError } from 'rxjs/operators';
 
 /**
  * TODO: 추후 바꿔야함. Apollo로 변경해야함.
@@ -82,7 +81,7 @@ export const useBoardDetail: (id: number) => QueryHooks<Board> = (id) => {
 /**
  * query를 parse해서 보여준다.
  */
-export const useParseQueryString = () => {
+export const useParseQueryString: <T>(type: T) => [T] = () => {
   const location = useLocation();
   const queries = queryString.parse(location.search);
 
