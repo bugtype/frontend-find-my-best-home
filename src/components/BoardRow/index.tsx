@@ -3,7 +3,7 @@ import { Board } from '@models';
 import { Grid } from '@material-ui/core';
 import { DateTime } from '@components';
 import { Link } from 'react-router-dom';
-import { ROUTE_BOARD_DETAIL_WITH_NO } from 'configs';
+import { ROUTE_BOARD_DETAIL_WITH_ID } from 'configs';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -15,19 +15,19 @@ const useStyles = makeStyles({
 
 export const BoardRow = ({ item }: { item: Board }) => {
   const classes = useStyles();
-  const { subject, date, userName, city, no } = item;
+  const { subject, date, userName, city, id } = item;
 
   return (
     <Grid container justify="center" alignItems="center" spacing={2}>
       <Grid item xs={1}>
-        {no}
+        {id}
       </Grid>
       <Grid item xs={1}>
         {city}
       </Grid>
       <Grid item xs={7}>
         <Link
-          to={ROUTE_BOARD_DETAIL_WITH_NO(item.no)}
+          to={ROUTE_BOARD_DETAIL_WITH_ID(item.id)}
           className={classes.subject}
         >
           {subject}

@@ -17,6 +17,10 @@ export const boardListService = {
       map(apiResponseToData)
     );
   },
+
+  getById(id: number): Observable<Board> {
+    return from(httpClient.get(`/boards/${id}`)).pipe(map(apiResponseToData));
+  },
 };
 
 // TODO: axios에서 타입변환하는 것이 좋을 듯하다.

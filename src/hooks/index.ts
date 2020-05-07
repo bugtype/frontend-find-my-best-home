@@ -4,6 +4,7 @@ import { Board } from '@models';
 import { boardListService } from '@services';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
+import { catchError } from 'rxjs/operators';
 
 /**
  * TODO: 추후 바꿔야함. Apollo로 변경해야함.
@@ -14,7 +15,7 @@ export const useBoardData: (page: number) => QueryHooks<Board[]> = (page) => {
   const [state, setState] = useState({
     loading: true,
     error: null,
-    data: [] as Board[],
+    data: [] as Board[], // FIXME: 어떻게 타입 처리를 할까나
   });
 
   useEffect(() => {
@@ -23,14 +24,57 @@ export const useBoardData: (page: number) => QueryHooks<Board[]> = (page) => {
       loading: true,
       data: [],
     }));
-    boardListService.paginate({ page }).subscribe((data) => {
-      setState((prevState) => ({
-        ...prevState,
-        loading: false,
-        data,
-      }));
-    });
+    boardListService.paginate({ page }).subscribe(
+      (data) => {
+        setState((prevState) => ({
+          ...prevState,
+          loading: false,
+          data,
+        }));
+      },
+      (error) => {
+        setState((prevState) => ({
+          ...prevState,
+          loading: false,
+          error,
+        }));
+      }
+    );
   }, [page, setState]);
+
+  return state;
+};
+
+export const useBoardDetail: (id: number) => QueryHooks<Board> = (id) => {
+  const [state, setState] = useState({
+    loading: true,
+    error: null,
+    data: {} as Board, // FIXME: 어떻게 타입 처리를 할까나
+  });
+
+  useEffect(() => {
+    setState((prevState) => ({
+      ...prevState,
+      loading: true,
+      data: {} as Board,
+    }));
+    boardListService.getById(id).subscribe(
+      (data) => {
+        setState((prevState) => ({
+          ...prevState,
+          loading: false,
+          data,
+        }));
+      },
+      (error) => {
+        setState((prevState) => ({
+          ...prevState,
+          loading: false,
+          error,
+        }));
+      }
+    );
+  }, [id, setState]);
 
   return state;
 };

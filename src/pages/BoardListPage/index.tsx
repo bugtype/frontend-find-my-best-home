@@ -7,7 +7,7 @@ export const BoardListPage = () => {
   const [queries] = useParseQueryString();
 
   const [page, setPage] = useState(queries.page || 1);
-  const { data, loading } = useBoardData(page);
+  const { data, loading, error } = useBoardData(page);
 
   return (
     <>
@@ -23,8 +23,13 @@ export const BoardListPage = () => {
             <Typography variant="body2">loading...</Typography>
           </Grid>
         )}
+        {!loading && error && (
+          <Grid item xs={12}>
+            <Typography variant="body2">error...</Typography>
+          </Grid>
+        )}
         {data.map((board) => (
-          <Grid key={board.no} item xs={12}>
+          <Grid key={board.id} item xs={12}>
             <BoardRow item={board} />
           </Grid>
         ))}
