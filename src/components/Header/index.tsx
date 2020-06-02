@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Grid,
+  Box,
   AppBar,
   Toolbar,
   IconButton,
@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
   header: {
     backgroundColor: '#ddd',
     textAlign: 'center',
-    width: '100%',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -29,7 +28,7 @@ export const Header = () => {
   const classes = useStyles();
 
   return (
-    <Grid item className={classes.header}>
+    <Box className={classes.header}>
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -47,6 +46,6 @@ export const Header = () => {
           {/* <Button className={classes.loginButton}>로그인</Button> */}
         </Toolbar>
       </AppBar>
-    </Grid>
+    </Box>
   );
 };
