@@ -1,10 +1,11 @@
 import React from 'react';
 import { useBoardDetail } from '@hooks';
-import { Grid } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 import { DateTime } from '@components';
 
-export const BoardDetailPage = ({ id }) => {
+const BoardDetailPage = ({ id }) => {
   const { data, loading, error } = useBoardDetail(id);
+  // const classes = useStyles();
 
   if (loading) {
     return <>loading...</>;
@@ -14,28 +15,37 @@ export const BoardDetailPage = ({ id }) => {
     return <>error...</>;
   }
 
-  const { subject, date, userName, city } = data;
+  const { subject, date, userName, city, content } = data;
 
   return (
-    <Grid container justify="center" alignItems="center" spacing={2}>
-      <Grid item xs={1}>
-        {id}
+    <Paper style={{ height: '80%' }}>
+      <Grid
+        style={{ height: '100%' }}
+        container
+        justify="center"
+        alignItems="center"
+        spacing={2}
+      >
+        <Grid
+          item
+          container
+          direction="column"
+          alignItems="flex-start"
+          spacing={2}
+        >
+          <Grid item>{subject}</Grid>
+          <Grid item container spacing={2}>
+            <Grid item>{city}</Grid>
+            <Grid item>{userName}</Grid>
+            <Grid item>
+              <DateTime date={date} textFormat={'yyyy-MM-dd'} />
+            </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid>{content}</Grid>
       </Grid>
-      <Grid item xs={1}>
-        {city}
-      </Grid>
-      <Grid item xs={7}>
-        {subject}
-      </Grid>
-      <Grid item xs={2}>
-        {userName}
-      </Grid>
-      <Grid item xs={1}>
-        <DateTime date={date} textFormat={'yyyy-MM-dd'} />
-      </Grid>
-      <Grid>
-        TODO: 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-      </Grid>
-    </Grid>
+    </Paper>
   );
 };
+export { BoardDetailPage };

@@ -3,6 +3,8 @@ export class Board {
 
   subject!: string;
 
+  content!: string;
+
   userName!: string;
 
   date!: string;
