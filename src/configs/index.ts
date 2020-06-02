@@ -1,4 +1,4 @@
-export const apiUrl = 'http://localhost:3000';
+export const apiUrl = 'http://localhost';
 export const apiTimeout = 1000;
 
 // routes

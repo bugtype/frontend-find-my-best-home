@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
+  loginButton: {
+    color: '#fff',
+  },
   title: {
     flexGrow: 1,
   },
@@ -41,7 +44,7 @@ export const Header = () => {
             꿀집 찾기 커뮤니티
           </Typography>
           {/* // TODO */}
-          {/* <Button color="inherit">Login</Button> */}
+          {/* <Button className={classes.loginButton}>로그인</Button> */}
         </Toolbar>
       </AppBar>
     </Grid>
