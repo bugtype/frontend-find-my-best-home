@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, AppBar, Toolbar, Typography } from '@material-ui/core';
+import { Box, AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Home } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
@@ -28,6 +28,10 @@ export const Header = () => {
     history.push('/');
   };
 
+  const handleLoginClick = () => {
+    history.push('/login');
+  };
+
   return (
     <Box className={classes.header}>
       <AppBar position="static">
@@ -37,7 +41,9 @@ export const Header = () => {
             꿀집 찾기 커뮤니티
           </Typography>
           {/* // TODO */}
-          {/* <Button className={classes.loginButton}>로그인</Button> */}
+          <Button className={classes.loginButton} onClick={handleLoginClick}>
+            로그인
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>

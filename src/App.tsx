@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css';
 import { Grid } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { BoardListPage, NotFoundPage, BoardDetailPage } from '@pages';
-import { ROUTE_BOARD_LIST, ROUTE_BOARD_DETAIL } from '@configs';
+import { BoardListPage, NotFoundPage, BoardDetailPage, Login } from '@pages';
+import { ROUTE_BOARD_LIST, ROUTE_BOARD_DETAIL, ROUTE_LOGIN } from '@configs';
 import { Header, Footer } from '@components';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -36,6 +36,8 @@ function App() {
           <Switch>
             <Route exact path="/" children={<BoardListPage />} />
             <Route exact path={ROUTE_BOARD_LIST} children={<BoardListPage />} />
+
+            <Route exact path={ROUTE_LOGIN} children={<Login />} />
             <Route
               exact
               path={ROUTE_BOARD_DETAIL}
