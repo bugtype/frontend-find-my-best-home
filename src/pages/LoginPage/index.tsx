@@ -1,20 +1,28 @@
 import React from 'react';
 import { Grid, TextField, Button } from '@material-ui/core';
+import { authService, storeService } from '@services';
+import { useLocation } from 'react-router-dom';
 
 /**
  * FIXME: export const 로하면 anonymous function으로 나온다. react dev tool
  */
 export const Login = () => {
   const [values, setValues] = React.useState({
-    id: '',
-    pw: '',
+    username: 'john',
+    password: 'changeme',
   });
+
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
 
   const handleSubmitClick = (event: React.FormEvent) => {
-    console.log('login');
+    // FIXME: hooks에서 처리해야함.
+    authService.login({ ...values }).subscribe((token) => {
+      storeService.saveToken({ token });
+      // FIXME: global window
+      window.location.reload();
+    });
     event.preventDefault();
   };
 
@@ -25,8 +33,8 @@ export const Login = () => {
           <TextField
             id="standard-name"
             label="ID"
-            value={values.id}
-            onChange={handleChange('id')}
+            value={values.username}
+            onChange={handleChange('username')}
             margin="normal"
           />
         </Grid>
@@ -35,8 +43,8 @@ export const Login = () => {
             type="password"
             id="standard-name"
             label="Password"
-            value={values.pw}
-            onChange={handleChange('pw')}
+            value={values.password}
+            onChange={handleChange('password')}
             margin="normal"
           />
         </Grid>
