@@ -11,6 +11,8 @@ import {
   Paper,
   makeStyles,
   TableFooter,
+  Box,
+  CircularProgress,
 } from '@material-ui/core';
 import { useBoardData, useParseQueryString } from '@hooks';
 import { BoardRow, PageNavigation } from '@components';
@@ -29,6 +31,14 @@ export const BoardList = () => {
   });
   const [page, setPage] = useState(queries.page || 1);
   const { data, loading, error } = useBoardData(page);
+
+  if (loading) {
+    return (
+      <Box>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
     <>
