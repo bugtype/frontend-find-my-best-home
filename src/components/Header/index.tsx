@@ -1,12 +1,8 @@
 import React from 'react';
-import {
-  Box,
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-} from '@material-ui/core';
+import { Box, AppBar, Toolbar, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { Home } from '@material-ui/icons';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -26,19 +22,17 @@ const useStyles = makeStyles((theme) => ({
 
 export const Header = () => {
   const classes = useStyles();
+  const history = useHistory();
+
+  const handleHomeClick = () => {
+    history.push('/');
+  };
 
   return (
     <Box className={classes.header}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            {/* <MenuIcon /> */}
-          </IconButton>
+          <Home onClick={handleHomeClick} />
           <Typography variant="h6" className={classes.title}>
             꿀집 찾기 커뮤니티
           </Typography>

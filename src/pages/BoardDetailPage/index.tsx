@@ -1,6 +1,6 @@
 import React from 'react';
 import { useBoardDetail } from '@hooks';
-import { Grid, Paper } from '@material-ui/core';
+import { Grid, Paper, CircularProgress, Box } from '@material-ui/core';
 import { DateTime, BoardList } from '@components';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -20,7 +20,11 @@ const BoardDetailPage = ({ id }) => {
   const classes = useStyles();
 
   if (loading) {
-    return <>loading...</>;
+    return (
+      <Box>
+        <CircularProgress />
+      </Box>
+    );
   }
 
   if (!loading && error) {

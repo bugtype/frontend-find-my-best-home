@@ -12,5 +12,5 @@ const useStyles = makeStyles({
 export const Footer = () => {
   const classes = useStyles();
 
-  return <Box className={classes.footer}>Footer</Box>;
+  return <Box className={classes.footer}>GitHub: bugtype</Box>;
 };

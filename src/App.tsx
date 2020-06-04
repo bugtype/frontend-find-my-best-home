@@ -26,14 +26,13 @@ function App() {
       <Grid
         className={classes.app}
         container
-        // direction="column"
+        direction="column"
         justify="space-between"
-        alignItems="center"
       >
-        <Grid item xs={12}>
+        <Grid item>
           <Header />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item>
           <Switch>
             <Route exact path="/" children={<BoardListPage />} />
             <Route exact path={ROUTE_BOARD_LIST} children={<BoardListPage />} />
@@ -42,11 +41,10 @@ function App() {
               path={ROUTE_BOARD_DETAIL}
               render={({ match }) => <BoardDetailPage {...match.params} />}
             />
-            <BoardListPage />
             <Route path="*" children={<NotFoundPage />} />
           </Switch>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item>
           <Footer />
         </Grid>
       </Grid>
