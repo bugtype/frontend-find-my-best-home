@@ -8,3 +8,5 @@ export const ROUTE_BOARD_LIST_WITH_PAGE = (page: number) =>
 
 export const ROUTE_BOARD_DETAIL = '/board/:id';
 export const ROUTE_BOARD_DETAIL_WITH_ID = (id: number) => `/board/${id}`;
+
+export const ROUTE_LOGIN = '/login';

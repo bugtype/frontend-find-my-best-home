@@ -5,6 +5,8 @@ import { boardListService } from '@services';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 
+export * from './auth';
+
 /**
  * TODO: 추후 바꿔야함. Apollo로 변경해야함.
  * https://www.apollographql.com/docs/react/
