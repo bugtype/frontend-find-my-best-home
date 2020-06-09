@@ -1,9 +1,10 @@
 import 'rxjs';
-import { Observable, from } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Board } from '@models';
+import { Observable, from, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { Board, User } from '@models';
 import { httpClient } from '@libs';
 import { AxiosResponse } from 'axios';
+import JwtDecode from 'jwt-decode';
 
 type PaginatePayload = {
   page: number;
@@ -36,6 +37,15 @@ export const authService = {
       map(apiResponseToData),
       map((data) => data.access_token)
     );
+  },
+  getUserSelf(): Observable<User | undefined> {
+    return of(sessionStorage.getItem('token') || {}).pipe(
+      map((data) => JwtDecode(data)),
+      catchError((_) => of(undefined))
+    );
+  },
+  logout() {
+    return of(sessionStorage.removeItem('token'));
   },
 };
 

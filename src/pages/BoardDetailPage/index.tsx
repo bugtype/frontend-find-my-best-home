@@ -27,7 +27,7 @@ const BoardDetailPage = ({ id }) => {
     );
   }
 
-  if (!loading && error) {
+  if ((!loading && error) || !data) {
     return <>error...</>;
   }
 

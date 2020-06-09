@@ -3,3 +3,4 @@
  * 비즈니스 로직은 서버에만 있도록 한다.
  */
 export * from './Board';
+export * from './User';
