@@ -2,6 +2,8 @@ export const apiUrl = 'http://localhost';
 export const apiTimeout = 1000;
 
 // routes
+export const ROUTE_ROOT = '/';
+
 export const ROUTE_BOARD_LIST = '/board';
 export const ROUTE_BOARD_LIST_WITH_PAGE = (page: number) =>
   `/board?page=${page}`;
