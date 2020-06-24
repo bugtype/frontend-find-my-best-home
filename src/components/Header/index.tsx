@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Header = () => {
+const Header = () => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -77,3 +77,5 @@ export const Header = () => {
     </Box>
   );
 };
+
+export { Header };

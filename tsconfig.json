@@ -21,6 +21,7 @@
       "@services": ["services/index"],
       "@models": ["models/index"],
       "@components": ["components/index"],
+      "@containers": ["containers/index"],
       "@libs": ["libs/index"],
       "@configs": ["configs/index"],
       "@pages": ["pages/index"]

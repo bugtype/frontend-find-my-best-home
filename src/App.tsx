@@ -27,27 +27,28 @@ const useStyles = makeStyles({
   },
 });
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { loading, data } = useAuth();
+// const PrivateRoute = ({ component: Component, ...rest }) => {
+//   const { loading, data } = useAuth();
 
-  if (loading) {
-    return (
-      <>
-        <CircularProgress />
-      </>
-    );
-  }
+//   if (loading) {
+//     return (
+//       <>
+//         <CircularProgress />
+//       </>
+//     );
+//   }
 
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        !data ? <Component {...props} /> : <Redirect to={ROUTE_ROOT} />
-      }
-    />
-  );
-};
+//   return (
+//     <Route
+//       {...rest}
+//       render={(props) =>
+//         !data ? <Component {...props} /> : <Redirect to={ROUTE_ROOT} />
+//       }
+//     />
+//   );
+// };
 
+// TODO: components로 옮기는 게 좋으려나??
 const UnPrivateRoute = ({ component: Component, ...rest }) => {
   const { loading, data } = useAuth();
 
@@ -69,9 +70,7 @@ const UnPrivateRoute = ({ component: Component, ...rest }) => {
   );
 };
 
-function App() {
-  // FIXME: 헤더, 풋터가 Content크기에 따라 계속 움직이므로, Content 영역 크기를 고정시켜야한다.
-
+const App = () => {
   const classes = useStyles();
 
   return (
@@ -106,6 +105,6 @@ function App() {
       </Grid>
     </Router>
   );
-}
+};
 
-export default App;
+export { App };

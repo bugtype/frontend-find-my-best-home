@@ -1,7 +1,8 @@
 import React from 'react';
 import { useBoardDetail } from '@hooks';
 import { Grid, Paper, CircularProgress, Box } from '@material-ui/core';
-import { DateTime, BoardList } from '@components';
+import { DateTime } from '@components';
+import { BoardList } from '@containers';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
