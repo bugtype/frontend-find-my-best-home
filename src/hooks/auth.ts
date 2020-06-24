@@ -11,7 +11,7 @@ export const useAuth: () => QueryHooks<User> = () => {
   }>({
     loading: true,
     error: null,
-    data: undefined, // FIXME: 어떻게 타입 처리를 할까나
+    data: undefined,
   });
 
   useEffect(() => {
