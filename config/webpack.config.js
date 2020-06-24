@@ -294,6 +294,7 @@ module.exports = function (webpackEnv) {
         '@services': 'services',
         '@models': 'models',
         '@components': 'components',
+        '@containers': 'containers',
         '@configs': 'configs',
         '@libs': 'libs',
         '@pages': 'pages',

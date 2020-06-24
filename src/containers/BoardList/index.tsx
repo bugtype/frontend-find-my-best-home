@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const BoardList = () => {
+const BoardList = () => {
   const classes = useStyles();
 
   const [queries] = useParseQueryString({
@@ -90,3 +90,5 @@ export const BoardList = () => {
     </>
   );
 };
+
+export { BoardList };

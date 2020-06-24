@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Home } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 import { authService } from '@services';
+import { ROUTE_LOGIN, ROUTE_ROOT } from '@configs';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Header = () => {
+const Header = () => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -34,11 +35,11 @@ export const Header = () => {
   }, []);
 
   const handleHomeClick = () => {
-    history.push('/');
+    history.push(ROUTE_ROOT);
   };
 
   const handleLoginClick = () => {
-    history.push('/login');
+    history.push(ROUTE_LOGIN);
   };
 
   const handleLogoutClick = () => {
@@ -46,8 +47,6 @@ export const Header = () => {
     // FIXME: global window
     window.location.reload();
   };
-
-  console.log(userSelf);
 
   return (
     <Box className={classes.header}>
@@ -57,7 +56,6 @@ export const Header = () => {
           <Typography variant="h6" className={classes.title}>
             꿀집 찾기 커뮤니티
           </Typography>
-          {/* // TODO */}
           {userSelf && (
             <Typography variant="subtitle1" color="textSecondary">
               {userSelf.username}
@@ -79,3 +77,5 @@ export const Header = () => {
     </Box>
   );
 };
+
+export { Header };

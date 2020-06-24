@@ -10,12 +10,7 @@ interface Props {
   onPageClick: (page: number) => void;
 }
 
-export const PageNavigation = ({
-  currentPage,
-  start,
-  last,
-  onPageClick,
-}: Props) => {
+const PageNavigation = ({ currentPage, start, last, onPageClick }: Props) => {
   const history = useHistory();
 
   const _currentPage = currentPage || 1;
@@ -45,3 +40,5 @@ export const PageNavigation = ({
     </Grid>
   );
 };
+
+export { PageNavigation };

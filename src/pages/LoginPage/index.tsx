@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Grid, TextField, Button } from '@material-ui/core';
 import { authService, storeService } from '@services';
-import { useAuth } from 'hooks/auth';
-import { useHistory } from 'react-router-dom';
 
 /**
  * FIXME: export const 로하면 anonymous function으로 나온다. react dev tool
@@ -12,9 +10,6 @@ export const Login = () => {
     username: 'john',
     password: 'changeme',
   });
-
-  const { loading, data } = useAuth();
-  const history = useHistory();
 
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
@@ -29,12 +24,6 @@ export const Login = () => {
     });
     event.preventDefault();
   };
-
-  useEffect(() => {
-    if (!loading && data) {
-      history.push('/');
-    }
-  }, [data, history, loading]);
 
   return (
     <Grid container justify="center" alignItems="center">
