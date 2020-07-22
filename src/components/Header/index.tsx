@@ -1,8 +1,10 @@
-import React from 'react';
-import { Box, AppBar, Toolbar, Typography } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+import { Box, AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Home } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
+import { authService } from '@services';
+import { ROUTE_LOGIN, ROUTE_ROOT } from '@configs';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -20,12 +22,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Header = () => {
+const Header = () => {
   const classes = useStyles();
   const history = useHistory();
 
+  const [userSelf, setUserSelf] = useState<any>(undefined);
+
+  useEffect(() => {
+    // TODO: https://swr.now.sh/
+    // FIXME: hooks
+    authService.getUserSelf().subscribe((data) => setUserSelf(data));
+  }, []);
+
   const handleHomeClick = () => {
-    history.push('/');
+    history.push(ROUTE_ROOT);
+  };
+
+  const handleLoginClick = () => {
+    history.push(ROUTE_LOGIN);
+  };
+
+  const handleLogoutClick = () => {
+    authService.logout();
+    // FIXME: global window
+    window.location.reload();
   };
 
   return (
@@ -36,10 +56,26 @@ export const Header = () => {
           <Typography variant="h6" className={classes.title}>
             꿀집 찾기 커뮤니티
           </Typography>
-          {/* // TODO */}
-          {/* <Button className={classes.loginButton}>로그인</Button> */}
+          {userSelf && (
+            <Typography variant="subtitle1" color="textSecondary">
+              {userSelf.username}
+            </Typography>
+          )}
+          {userSelf && (
+            <Button className={classes.loginButton} onClick={handleLogoutClick}>
+              로그아웃
+            </Button>
+          )}
+
+          {!userSelf && (
+            <Button className={classes.loginButton} onClick={handleLoginClick}>
+              로그인
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </Box>
   );
 };
+
+export { Header };

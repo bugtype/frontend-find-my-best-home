@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const BoardRow = ({ item }: { item: Board }) => {
+const BoardRow = ({ item }: { item: Board }) => {
   const classes = useStyles();
   const { subject, date, userName, city, id } = item;
 
@@ -36,3 +36,5 @@ export const BoardRow = ({ item }: { item: Board }) => {
     </TableRow>
   );
 };
+
+export { BoardRow };

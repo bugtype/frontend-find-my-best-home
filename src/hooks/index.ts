@@ -5,23 +5,25 @@ import { boardListService } from '@services';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 
+export * from './auth';
+
 /**
  * TODO: 추후 바꿔야함. Apollo로 변경해야함.
  * https://www.apollographql.com/docs/react/
  */
 
 export const useBoardData: (page: number) => QueryHooks<Board[]> = (page) => {
-  const [state, setState] = useState({
+  const [state, setState] = useState<QueryHooks<Board[]>>({
     loading: true,
     error: null,
-    data: [] as Board[], // FIXME: 어떻게 타입 처리를 할까나
+    data: undefined,
   });
 
   useEffect(() => {
     setState((prevState) => ({
       ...prevState,
       loading: true,
-      data: [],
+      data: undefined,
     }));
     boardListService.paginate({ page }).subscribe(
       (data) => {
@@ -45,17 +47,17 @@ export const useBoardData: (page: number) => QueryHooks<Board[]> = (page) => {
 };
 
 export const useBoardDetail: (id: number) => QueryHooks<Board> = (id) => {
-  const [state, setState] = useState({
+  const [state, setState] = useState<QueryHooks<Board>>({
     loading: true,
     error: null,
-    data: {} as Board, // FIXME: 어떻게 타입 처리를 할까나
+    data: undefined,
   });
 
   useEffect(() => {
     setState((prevState) => ({
       ...prevState,
       loading: true,
-      data: {} as Board,
+      data: undefined,
     }));
     boardListService.getById(id).subscribe(
       (data) => {

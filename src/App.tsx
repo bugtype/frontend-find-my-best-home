@@ -1,11 +1,22 @@
 import React from 'react';
 import './App.css';
-import { Grid } from '@material-ui/core';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { BoardListPage, NotFoundPage, BoardDetailPage } from '@pages';
-import { ROUTE_BOARD_LIST, ROUTE_BOARD_DETAIL } from '@configs';
+import { Grid, CircularProgress } from '@material-ui/core';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+import { BoardListPage, NotFoundPage, BoardDetailPage, Login } from '@pages';
+import {
+  ROUTE_BOARD_LIST,
+  ROUTE_BOARD_DETAIL,
+  ROUTE_LOGIN,
+  ROUTE_ROOT,
+} from '@configs';
 import { Header, Footer } from '@components';
 import { makeStyles } from '@material-ui/core/styles';
+import { useAuth } from '@hooks';
 
 const useStyles = makeStyles({
   app: {
@@ -16,9 +27,50 @@ const useStyles = makeStyles({
   },
 });
 
-function App() {
-  // FIXME: 헤더, 풋터가 Content크기에 따라 계속 움직이므로, Content 영역 크기를 고정시켜야한다.
+// const PrivateRoute = ({ component: Component, ...rest }) => {
+//   const { loading, data } = useAuth();
 
+//   if (loading) {
+//     return (
+//       <>
+//         <CircularProgress />
+//       </>
+//     );
+//   }
+
+//   return (
+//     <Route
+//       {...rest}
+//       render={(props) =>
+//         !data ? <Component {...props} /> : <Redirect to={ROUTE_ROOT} />
+//       }
+//     />
+//   );
+// };
+
+// TODO: components로 옮기는 게 좋으려나??
+const UnPrivateRoute = ({ component: Component, ...rest }) => {
+  const { loading, data } = useAuth();
+
+  if (loading) {
+    return (
+      <>
+        <CircularProgress />
+      </>
+    );
+  }
+
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        !data ? <Component {...props} /> : <Redirect to={ROUTE_ROOT} />
+      }
+    />
+  );
+};
+
+const App = () => {
   const classes = useStyles();
 
   return (
@@ -34,8 +86,11 @@ function App() {
         </Grid>
         <Grid item>
           <Switch>
-            <Route exact path="/" children={<BoardListPage />} />
+            <Route exact path={ROUTE_ROOT} children={<BoardListPage />} />
             <Route exact path={ROUTE_BOARD_LIST} children={<BoardListPage />} />
+            <UnPrivateRoute exact path={ROUTE_LOGIN} component={Login} />
+            {/* // TODO: 예) Profile
+            <PrivateRoute exact path={} component={Profile} /> */}
             <Route
               exact
               path={ROUTE_BOARD_DETAIL}
@@ -50,6 +105,6 @@ function App() {
       </Grid>
     </Router>
   );
-}
+};
 
-export default App;
+export { App };

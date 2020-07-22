@@ -10,7 +10,7 @@ interface Props {
 /**
  * 나라마다 UTC가 다르므로, timezone을 받아야 한다.
  */
-export const DateTime = ({ date, timezone, textFormat }: Props) => {
+const DateTime = ({ date, timezone, textFormat }: Props) => {
   const _timezone = timezone || 'Asia/Seoul';
   const utcDate = utcToZonedTime(date, _timezone);
   //   const utcDate = utcToZonedTime(date, language || 'America/Los_Angeles');
@@ -21,3 +21,5 @@ export const DateTime = ({ date, timezone, textFormat }: Props) => {
 
   return <>{dateStr}</>;
 };
+
+export { DateTime };

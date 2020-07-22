@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const BoardList = () => {
+const BoardList = () => {
   const classes = useStyles();
 
   const [queries] = useParseQueryString({
@@ -66,10 +66,13 @@ export const BoardList = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {data.map((board) => (
-                <BoardRow item={board} />
+              {data?.map((board) => (
+                <BoardRow key={board.id.toString()} item={board} />
               ))}
             </TableBody>
+            {/* // FIXME: 에러 수정해야함.
+            // validateDOMNesting(...): <td> cannot appear as a child of <tfoot>.  */}
+
             <TableFooter>
               <TableCell colSpan={5} align="center">
                 <PageNavigation
@@ -87,3 +90,5 @@ export const BoardList = () => {
     </>
   );
 };
+
+export { BoardList };
