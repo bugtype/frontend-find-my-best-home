@@ -5,7 +5,7 @@ import { authService, storeService } from '@services';
 /**
  * FIXME: export const 로하면 anonymous function으로 나온다. react dev tool
  */
-export const Login = () => {
+const Login = () => {
   const [values, setValues] = React.useState({
     username: 'john',
     password: 'changeme',
@@ -52,3 +52,5 @@ export const Login = () => {
     </Grid>
   );
 };
+
+export { Login };

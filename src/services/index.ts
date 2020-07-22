@@ -1,4 +1,3 @@
-import 'rxjs';
 import { Observable, from, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { Board, User } from '@models';

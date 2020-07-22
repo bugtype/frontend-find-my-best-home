@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const BoardListPage = () => {
+const BoardListPage = () => {
   const classes = useStyles();
 
   return (
@@ -26,3 +26,5 @@ export const BoardListPage = () => {
     </>
   );
 };
+
+export { BoardListPage };
