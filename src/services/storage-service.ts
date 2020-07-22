@@ -2,16 +2,11 @@
 
 import { Observable, from } from 'rxjs';
 
-// FIXME: type
 export const storageService = {
-  saveToken(params: { token: string }): Observable<any> {
-    // TODO: 실패하는 경우가 있나?
-    try {
-      sessionStorage.setItem('token', params.token);
-    } catch (e) {
-      return from('0');
-    }
-    return from('1');
+  // FIXME: type
+  saveToken(params: { token: string }): Observable<string> {
+    sessionStorage.setItem('token', params.token);
+    return from(params.token);
   },
   getToken(): Observable<any> {
     return from(sessionStorage.getItem('token') || '');
