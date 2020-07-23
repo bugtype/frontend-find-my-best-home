@@ -1,12 +1,12 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { BoardRow, DateTime } from '@components';
-import { Board } from '@models';
+import { BoardModel } from '@models';
 import { Grid } from '@material-ui/core';
 
 describe('BoardRow 테스트', () => {
   it('정상적으로 렌더링 되는가', () => {
-    const mock: Board = {
+    const mock: BoardModel = {
       city: '종로',
       subject: '종로도 좋아요',
       userName: '종로-자취생',

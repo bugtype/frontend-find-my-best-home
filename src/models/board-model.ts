@@ -1,4 +1,4 @@
-export class Board {
+export class BoardModel {
   id!: number;
 
   subject!: string;

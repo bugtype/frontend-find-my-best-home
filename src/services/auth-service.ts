@@ -3,7 +3,7 @@
 import { from, Observable, of } from 'rxjs';
 import { httpClient } from '@libs';
 import { map, catchError } from 'rxjs/operators';
-import { User } from '@models';
+import { UserModel } from '@models';
 import { decodeJwt } from '@libs';
 import { apiResponseToData } from '@utils';
 
@@ -14,9 +14,9 @@ export const authService = {
       map((data) => data.access_token)
     );
   },
-  getUserSelf(): Observable<User | undefined> {
-    return of(sessionStorage.getItem('token') || '{}').pipe(
-      map((data) => decodeJwt<User>(data)),
+  getUserSelf(): Observable<UserModel | undefined> {
+    return of(sessionStorage.getItem('token') || '{e}').pipe(
+      map((data) => decodeJwt<UserModel>(data)),
       catchError((_) => of(undefined))
     );
   },
