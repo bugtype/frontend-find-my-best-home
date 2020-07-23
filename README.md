@@ -24,9 +24,3 @@ npm run test
   - push 할 때, test 및 eslint code 검사하도록
 - GithubAction , Jenkins 셋팅
 - 추후에는 Apollo를 연결 해야한다.
-
-### 주의!
-
-- Frontend에는 비지니스 로직이 없어야 한다.
-
-- Store를 사용하고 싶을때는 SessionStorage, LocalStorage를 이용하도록 한다.
