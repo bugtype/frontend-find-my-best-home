@@ -3,7 +3,7 @@ import { map } from 'rxjs/operators';
 import { BoardModel } from '@models';
 import { httpClient } from '@libs';
 import { PaginatePayload } from './type';
-import { apiResponseToData } from 'utils';
+import { apiResponseToData } from '@utils';
 
 export const boardService = {
   paginate(params: PaginatePayload): Observable<BoardModel[]> {
