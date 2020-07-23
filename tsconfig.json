@@ -23,6 +23,7 @@
       "@components": ["components/index"],
       "@containers": ["containers/index"],
       "@libs": ["libs/index"],
+      "@utils": ["utils/index"],
       "@configs": ["configs/index"],
       "@pages": ["pages/index"]
     }

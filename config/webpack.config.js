@@ -297,6 +297,7 @@ module.exports = function (webpackEnv) {
         '@containers': 'containers',
         '@configs': 'configs',
         '@libs': 'libs',
+        '@utils': 'utils',
         '@pages': 'pages',
 
         'react-native': 'react-native-web',
