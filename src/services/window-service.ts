@@ -3,6 +3,6 @@
  */
 export const windowService = {
   location: {
-    reload: window.location.reload,
+    reload: () => window.location.reload(),
   },
 };
