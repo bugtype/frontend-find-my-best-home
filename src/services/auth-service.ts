@@ -2,10 +2,10 @@
 
 import { from, Observable, of } from 'rxjs';
 import { httpClient } from '@libs';
-import JwtDecode from 'jwt-decode';
 import { map, catchError } from 'rxjs/operators';
-import { User } from '@models';
-import { apiResponseToData } from 'utils';
+import { UserModel } from '@models';
+import { decodeJwt } from '@libs';
+import { apiResponseToData } from '@utils';
 
 export const authService = {
   login(params: { username: string; password: string }): Observable<string> {
@@ -14,9 +14,9 @@ export const authService = {
       map((data) => data.access_token)
     );
   },
-  getUserSelf(): Observable<User | undefined> {
-    return of(sessionStorage.getItem('token') || {}).pipe(
-      map((data) => JwtDecode(data)),
+  getUserSelf(): Observable<UserModel | undefined> {
+    return of(sessionStorage.getItem('token') || '{e}').pipe(
+      map((data) => decodeJwt<UserModel>(data)),
       catchError((_) => of(undefined))
     );
   },

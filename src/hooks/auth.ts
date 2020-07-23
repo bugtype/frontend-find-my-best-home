@@ -1,12 +1,12 @@
 import { QueryHooks } from './types';
-import { User } from '@models';
+import { UserModel } from '@models';
 import { useState, useEffect } from 'react';
 import { authService } from '@services';
 
-export const useAuth: () => QueryHooks<User> = () => {
+export const useAuth: () => QueryHooks<UserModel> = () => {
   const [state, setState] = useState<{
     loading: boolean;
-    data: User | undefined;
+    data: UserModel | undefined;
     error: Error | null;
   }>({
     loading: true,
