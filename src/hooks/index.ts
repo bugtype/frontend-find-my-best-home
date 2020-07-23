@@ -25,22 +25,23 @@ export const useBoardData: (page: number) => QueryHooks<Board[]> = (page) => {
       loading: true,
       data: undefined,
     }));
-    boardService.paginate({ page }).subscribe(
-      (data) => {
+
+    boardService
+      .paginate({ page })
+      .then((data) => {
         setState((prevState) => ({
           ...prevState,
           loading: false,
           data,
         }));
-      },
-      (error) => {
+      })
+      .catch((error) => {
         setState((prevState) => ({
           ...prevState,
           loading: false,
           error,
         }));
-      }
-    );
+      });
   }, [page, setState]);
 
   return state;
