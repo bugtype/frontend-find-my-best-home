@@ -35,8 +35,13 @@ const BoardDetailPage = ({ id }) => {
   const { subject, date, userName, city, content } = data;
 
   return (
-    <Grid container justify="center" className={classes.root}>
-      <Grid item xs={12}>
+    <Grid
+      container
+      direction="column"
+      justify="center"
+      className={classes.root}
+    >
+      <Grid item>
         <Paper className={classes.detailPaper}>
           <Grid container justify="center" alignItems="center" spacing={2}>
             <Grid
@@ -60,7 +65,7 @@ const BoardDetailPage = ({ id }) => {
           </Grid>
         </Paper>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item>
         <BoardList />
       </Grid>
     </Grid>

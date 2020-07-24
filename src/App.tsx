@@ -53,11 +53,7 @@ const UnPrivateRoute = ({ component: Component, ...rest }) => {
   const { loading, data } = useAuth();
 
   if (loading) {
-    return (
-      <>
-        <CircularProgress />
-      </>
-    );
+    return <CircularProgress />;
   }
 
   return (
@@ -80,6 +76,7 @@ const App = () => {
         container
         direction="column"
         justify="space-between"
+        wrap="nowrap"
       >
         <Grid item>
           <Header />
