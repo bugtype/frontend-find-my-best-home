@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { QueryHooks } from './types';
-import { Board } from '@models';
-import { boardListService } from '@services';
+import { BoardModel } from '@models';
+import { boardService } from '@services';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 
@@ -12,8 +12,10 @@ export * from './auth';
  * https://www.apollographql.com/docs/react/
  */
 
-export const useBoardData: (page: number) => QueryHooks<Board[]> = (page) => {
-  const [state, setState] = useState<QueryHooks<Board[]>>({
+export const useBoardData: (page: number) => QueryHooks<BoardModel[]> = (
+  page
+) => {
+  const [state, setState] = useState<QueryHooks<BoardModel[]>>({
     loading: true,
     error: null,
     data: undefined,
@@ -25,7 +27,7 @@ export const useBoardData: (page: number) => QueryHooks<Board[]> = (page) => {
       loading: true,
       data: undefined,
     }));
-    boardListService.paginate({ page }).subscribe(
+    boardService.paginate({ page }).subscribe(
       (data) => {
         setState((prevState) => ({
           ...prevState,
@@ -46,8 +48,8 @@ export const useBoardData: (page: number) => QueryHooks<Board[]> = (page) => {
   return state;
 };
 
-export const useBoardDetail: (id: number) => QueryHooks<Board> = (id) => {
-  const [state, setState] = useState<QueryHooks<Board>>({
+export const useBoardDetail: (id: number) => QueryHooks<BoardModel> = (id) => {
+  const [state, setState] = useState<QueryHooks<BoardModel>>({
     loading: true,
     error: null,
     data: undefined,
@@ -59,7 +61,7 @@ export const useBoardDetail: (id: number) => QueryHooks<Board> = (id) => {
       loading: true,
       data: undefined,
     }));
-    boardListService.getById(id).subscribe(
+    boardService.getById(id).subscribe(
       (data) => {
         setState((prevState) => ({
           ...prevState,

@@ -3,7 +3,7 @@ import { Box, AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Home } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
-import { authService } from '@services';
+import { authService, windowService } from '@services';
 import { ROUTE_LOGIN, ROUTE_ROOT } from '@configs';
 
 const useStyles = makeStyles((theme) => ({
@@ -44,8 +44,7 @@ const Header = () => {
 
   const handleLogoutClick = () => {
     authService.logout();
-    // FIXME: global window
-    window.location.reload();
+    windowService.location.reload();
   };
 
   return (

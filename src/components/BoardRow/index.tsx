@@ -1,9 +1,9 @@
 import React from 'react';
-import { Board } from '@models';
+import { BoardModel } from '@models';
 import { TableRow, TableCell } from '@material-ui/core';
 import { DateTime } from '@components';
 import { Link } from 'react-router-dom';
-import { ROUTE_BOARD_DETAIL_WITH_ID } from 'configs';
+import { ROUTE_BOARD_DETAIL_WITH_ID } from '@configs';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
-const BoardRow = ({ item }: { item: Board }) => {
+const BoardRow = ({ item }: { item: BoardModel }) => {
   const classes = useStyles();
   const { subject, date, userName, city, id } = item;
 
