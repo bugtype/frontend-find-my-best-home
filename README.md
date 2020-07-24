@@ -1,3 +1,7 @@
+## 미리보기
+
+<img src="docs/preview.gif" width="500"  />
+
 ## 목표
 
 집, 자취 관련 커뮤니티 만들기
