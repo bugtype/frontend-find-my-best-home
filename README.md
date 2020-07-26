@@ -25,7 +25,7 @@
     - [ ] 현재 글 목록에서 `페이지 2` 에서 게시물 클릭시, 글 목록에서 `페이지 1` 로 보여준다.
     - [ ] 글 목록에서 `현재 게시글`이 어떤건 지 구별하지 못한다.
 
-### Project Stack
+### 프로젝트 기술 스택
 
 - React
 - Typescript
@@ -35,7 +35,7 @@
 - Webpack
 - TODO Apollo
 
-### Project Flow
+### 프로젝트 흐름
 
 `View => Hooks => Service`
 
