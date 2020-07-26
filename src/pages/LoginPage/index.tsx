@@ -2,9 +2,6 @@ import React from 'react';
 import { Grid, TextField, Button } from '@material-ui/core';
 import { authService, windowService } from '@services';
 
-/**
- * FIXME: export const 로하면 anonymous function으로 나온다. react dev tool
- */
 const Login = () => {
   const [values, setValues] = React.useState({
     username: 'john',
