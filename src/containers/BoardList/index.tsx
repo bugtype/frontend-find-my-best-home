@@ -70,21 +70,15 @@ const BoardList = () => {
                 <BoardRow key={board.id.toString()} item={board} />
               ))}
             </TableBody>
-            {/* // FIXME: 에러 수정해야함.
-            // validateDOMNesting(...): <td> cannot appear as a child of <tfoot>.  */}
-
-            <TableFooter>
-              <TableCell colSpan={5} align="center">
-                <PageNavigation
-                  currentPage={page}
-                  // TODO: 서버에서 받아와야함.
-                  start={1}
-                  last={2}
-                  onPageClick={(page) => setPage(page)}
-                />
-              </TableCell>
-            </TableFooter>
           </Table>
+          <PageNavigation
+            currentPage={page}
+            // TODO: 디자인
+            // TODO: 서버에서 page 관련 데이터 받아와야함.
+            start={1}
+            last={2}
+            onPageClick={(page) => setPage(page)}
+          />
         </TableContainer>
       </Grid>
     </>
