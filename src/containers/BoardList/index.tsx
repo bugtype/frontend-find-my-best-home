@@ -10,7 +10,6 @@ import {
   Table,
   Paper,
   makeStyles,
-  TableFooter,
   Box,
   CircularProgress,
 } from '@material-ui/core';
