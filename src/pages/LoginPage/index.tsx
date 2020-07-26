@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, TextField, Button } from '@material-ui/core';
-import { authService, storageService, windowService } from '@services';
+import { authService, windowService } from '@services';
 
 /**
  * FIXME: export const 로하면 anonymous function으로 나온다. react dev tool
@@ -18,7 +18,6 @@ const Login = () => {
   const handleSubmitClick = (event: React.FormEvent) => {
     // FIXME: hooks에서 처리해야함.
     authService.login({ ...values }).subscribe((token) => {
-      storageService.saveToken({ token });
       windowService.location.reload();
     });
     event.preventDefault();
