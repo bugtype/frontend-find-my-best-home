@@ -6,3 +6,4 @@ services:
       dockerfile: Dockerfile
     ports:
       - '3000:80'
+  # FIXME: volume 공유해서 nginx를 여기에 추가하는게 좋으려나?
