@@ -43,7 +43,7 @@
 
 ### 명령어
 
-```
+```sh
 
 # start
 npm run start
@@ -53,6 +53,11 @@ npm run build
 
 # test
 npm run test
+
+# docker run
+# http://localhost:3000
+npm run docker-run
+
 ```
 
 ### 개발 관련 TODO
