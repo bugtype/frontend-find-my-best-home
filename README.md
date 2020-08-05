@@ -68,3 +68,4 @@ npm run docker-run
   - push 할 때, test 및 eslint code 검사하도록
 - GithubAction , Jenkins 셋팅
 - 추후에는 Apollo를 연결 해야한다.
+- NextJs 검토
