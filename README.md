@@ -43,6 +43,28 @@
 
 ![](docs/frontend-flow.png)
 
+### 이렇게 설계한 이유는?
+
+#### 추후 Apollo GraphQL로 변경할 것을 고려
+
+- 추후 Apollo GraphQL로 변경하게 되면 useQuery, useMutation로 변경해야 한다. 유지보수를 고려해서 `useXXX` 으로 구현하였다.
+- Service 코드를 보면 Observable로 구현 되어 있는데 GraphQL처럼 pushing을 고려했다.
+
+#### nginx에 올리는 것을 생각해서 Docker 추가
+
+- Frontend는 정적이다보니 CDN으로 배포해도 되지만, Nginx로 추후 라우팅처리, Cache 처리를 할 수 있기에 구현해보았다.
+  
+#### custom-rule 폴더는 무엇인가?
+
+- eslint rule을 직접 커스텀하려고 일단 만들어두었다.
+  - https://tech.kakao.com/2019/12/05/make-better-use-of-eslint/
+- 예를 들어서 컨벤션을 정하면 강제할 수 있다.
+  - `export * from './abcde'` 할 떄 순서를 sorting을 해준다던가...( eslint에는 import sorting rule 밖에 없다.... )
+  - anonymous export function을 방지 ( 디버깅때 표시 안됨!!!😅 )
+  
+  
+
+
 ### 명령어
 
 ```sh

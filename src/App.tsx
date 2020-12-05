@@ -23,7 +23,6 @@ const useStyles = makeStyles({
     textAlign: 'center',
     height: '100vh',
     width: '100vw',
-    flexGrow: 1,
   },
 });
 
