@@ -6,6 +6,7 @@ const useStyles = makeStyles({
   footer: {
     backgroundColor: 'rgb(203, 231, 209)',
     width: '100%',
+    textAlign: 'center'
   },
 });
 
