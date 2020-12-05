@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Grid,
   Typography,
   TableHead,
   TableRow,
@@ -17,6 +16,9 @@ import { useBoardData, useParseQueryString } from '@hooks';
 import { BoardRow, PageNavigation } from '@components';
 
 const useStyles = makeStyles({
+  tableContainer: {
+    height: '100%',
+  },
   table: {
     minWidth: 650,
   },
@@ -41,18 +43,15 @@ const BoardList = () => {
 
   return (
     <>
-      <Grid container justify="center">
+    <Box height="100%" display="flex" flexDirection="column">
         {loading && (
-          <Grid item xs={12}>
             <Typography variant="body2">loading...</Typography>
-          </Grid>
         )}
         {!loading && error && (
-          <Grid item xs={12}>
             <Typography variant="body2">error...</Typography>
-          </Grid>
         )}
-        <TableContainer component={Paper}>
+        <Box flex="1">
+        <TableContainer className={classes.tableContainer} component={Paper}>
           <Table className={classes.table} aria-label="simple table">
             {/* // FIXME: 한글로하면 bold가 안들어감. */}
             <TableHead>
@@ -79,7 +78,8 @@ const BoardList = () => {
             onPageClick={(page) => setPage(page)}
           />
         </TableContainer>
-      </Grid>
+        </Box>
+        </Box>
     </>
   );
 };

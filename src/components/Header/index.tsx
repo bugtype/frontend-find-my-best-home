@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#ddd',
     textAlign: 'center',
   },
+  homeButton:{
+    cursor:'pointer',
+  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -51,7 +54,7 @@ const Header = () => {
     <Box className={classes.header}>
       <AppBar position="static">
         <Toolbar>
-          <Home onClick={handleHomeClick} />
+          <Home className={classes.homeButton} onClick={handleHomeClick} />
           <Typography variant="h6" className={classes.title}>
             꿀집 찾기 커뮤니티
           </Typography>
