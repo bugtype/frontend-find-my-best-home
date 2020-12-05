@@ -14,13 +14,13 @@ pipeline {
                 sh 'npm install' 
             }
         }
-        stage('Test') {
+        stage('Testing') {
             steps {
                 echo 'Testing..'
                 sh 'npm run test'
             }
         }
-        stage('Build') {
+        stage('Building') {
             steps {
                 echo 'Building..'
                 sh 'npm run build'
