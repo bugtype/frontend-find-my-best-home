@@ -62,6 +62,7 @@
   - https://tech.kakao.com/2019/12/05/make-better-use-of-eslint/
 - 예를 들어서 컨벤션을 정하면 강제할 수 있다.
   - `export * from './abcde'` 할 떄 순서를 sorting을 해준다던가...( eslint에는 import sorting rule 밖에 없다.... )
+  - https://github.com/FxxxdChicken/eslint-plugin-sort-exports 그래서 eslint rule을 만들었다.!
   - anonymous export function 사용을 방지 ( 디버깅때 표시 안됨!!!😅 )
   
   
